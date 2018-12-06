@@ -1,0 +1,67 @@
+#DB properties:Global.....
+#db.driver=com.mysql.jdbc.Driver
+#db.url=jdbc:mysql://localhost:3306/flp?useUnicode=true&characterEncoding=UTF-8
+#db.username=root
+#db.password=bedrock
+
+#DB properties:tech.
+db.driver=com.mysql.jdbc.Driver
+db.url=jdbc:mysql://localhost:3307/FLP_New?useUnicode=true&characterEncoding=UTF-8
+db.username=root
+db.password=server@ct
+
+ 
+##DB properties:local....
+#db.driver=com.mysql.jdbc.Driver
+#db.url=jdbc:mysql://localhost:3309/flp?useUnicode=true&characterEncoding=UTF-8
+#db.username=root
+#db.password=root
+ 
+#Hibernate Configuration: 
+hibernate.dialect=org.hibernate.dialect.MySQLDialect
+hibernate.show_sql=false
+entitymanager.packages.to.scan=com.flp.model
+hibernate.hbm2ddl.auto=update
+hibernate.connection.useUnicode=true
+hibernate.connection.characterEncoding=UTF-8
+hibernate.connection.charSet=UTF-8
+current_session_context_class=thread
+#flp.modules=D:/FLP_RESOURCES/MODULES
+ 
+flp.modules=http://iperformkonnect.classteacher.com/DATA-STATIC/data/modules
+flp.modules.retrieve=http://iperformkonnect.classteacher.com/DATA-STATIC/data/modules
+ 
+flp.qa.images=/home/classteacher/tomcat3/iperformkonnect.classteacher.com/DATA-STATIC/data/questionImages
+flp.qa.images.retrieve=http://iperformkonnect.classteacher.com/DATA-STATIC/data/questionImages/
+#flp.qa.images.retrieve=/home/sheena/QaImage/image/
+#subject images
+flp.subjectImage=http://iperformkonnect.classteacher.com/DATA-STATIC/data/subjectImage
+ 
+#user profile images
+ 
+flp.pImage=http://iperformkonnect.classteacher.com/DATA-STATIC/data/profileImage/
+#flp.pImage=/home/ashish/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/FLP_New/resources/profileImage/
+ 
+#path to show static content like questions and modules
+flp.static.lmsimagepath=http://iperformkonnect.classteacher.com/DATA-STATIC/data/questionImages/
+ 
+flp.static.rootPath=http://iperformkonnect.classteacher.com/DATA-STATIC/data
+#flp.static.rootPath=/FLP_New/resources
+ 
+#Mail Configuration
+flp.classteacher.noreply.mail=noreply@classteacher.com
+flp.classteacher.noreply.password=noreply1234
+mail.smtp.host=smtp.gmail.com
+mail.smtp.port=587
+mail.smtp.auth=true
+mail.smtp.starttls.enable=true
+ 
+#time configuration
+#hours.title=0
+#minute.title=0
+hours.title=0
+minute.title=0
+appUrl=http://iperformkonnect.classteacher.com
+
+#appUrl=http://localhost:8080/FLP_New
+taxPrice=120.00

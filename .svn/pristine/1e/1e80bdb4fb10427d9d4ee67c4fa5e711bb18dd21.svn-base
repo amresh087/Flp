@@ -1,0 +1,123 @@
+package com.flp.service;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.flp.model.Board;
+import com.flp.model.Chapter;
+import com.flp.model.Grade;
+import com.flp.model.LearnObjective;
+import com.flp.model.ModuleTopic;
+import com.flp.model.Question;
+import com.flp.model.QuestionComments;
+import com.flp.model.QuestionTopic;
+import com.flp.model.School;
+import com.flp.model.SchoolSession;
+import com.flp.model.Section;
+import com.flp.model.Session;
+import com.flp.model.Subject;
+import com.flp.model.SubjectSection;
+import com.flp.model.Topic;
+import com.flp.model.TopicGraph;
+import com.flp.model.UpdateLog;
+import com.flp.model.ZoneCreate;
+
+
+public interface AdminService
+{ 
+	List<Grade> getGrades(Long boardId, Long schoolId, Integer status);								
+	List<Subject> getSubjects(Long boardId, Long schoolId, String subjectName, Integer status);		
+	List<School> getAllSchoolDetails(Boolean status);
+	Boolean addSchool(School school);
+	Boolean deactivateSchool(Long schoolId,Integer status);
+	School getSchoolDetailsById(Long id);
+	boolean checkBoardAvailability(String boardName, Integer status);
+	boolean checkGradeAvailability(String gradeName, Long schoolId, Long boardId, Integer status);
+	boolean checkSubjectAvailability(Long boardId, Long schoolId, Integer status, String subjectName);
+	boolean checkChapterAvailability(Long gradeId, Long subjectId, Integer status, String chapterName);
+	boolean checkTopicAvailability(Long chapterId, Integer status, String topicName);
+	Board addBoard(Board board); 
+	//ZoneCreate addBoard2(ZoneCreate board);
+	Grade addGrade(Grade grade);
+	List<Long> addGradeAndSection(Grade grade, String boardIdString, String sessionSchoolGradeIdString, String sectionName);
+	Subject addSubject(Subject subject);
+	List<Long> addSubjectAndMapping(Subject subject, String sectionIdString);
+	List<Section> getSections(String sectionIdString, Long boardId, String sessionSchoolGradeIdString, Integer status, String gradeIdString, String order);
+	List<SubjectSection> getSubjectSections(String sectionIdString, Integer status);	
+	List<Long> addSubjectSectionMapping(Subject subject, List<Section> sectionList);
+	void updateSubjectSectionMapping(String subjectSectionIdString, Integer status);
+	void updateBoard(String boardIdString, Integer status);
+	List<Chapter> getChapters(String subjectIdString, Long gradeId, Integer status);
+	Chapter addChapter(Chapter chapter);
+	void updateChapter(String chapterIdString, Integer status);
+	void updateSection(String sectionIdString, Integer status);
+	void updateGrade(String gradeIdString, Integer status);
+	void updateTopic(String topicIdString, Integer status);
+	void updateQuestionTopic(String topicIdString, Integer status);
+	
+	void updateQuestion(String questopicid ,String QuestionIdString, Integer status);
+	//updateQuestionTopic
+	List<Topic> getTopics(String chapterIdString, Integer status);
+	
+	List<LearnObjective> getLos(String topicIdString, Integer status);
+	
+	Long getlocount(Long topicIdString ,Integer status);
+	
+	
+	List<QuestionTopic> getQuestions(String topicIdMap, Integer status);
+	public String MapQuestionWithTopic(Long QmapWithTopic,String allQuestionsChecked[]);
+	
+	Topic addTopic(Topic topic);
+	
+	LearnObjective addLO(LearnObjective lo);
+	List<Board> getBoards(Long ctlsBoardId, Integer status);
+	List<Board> getBoardName(Long BoardId);
+	Boolean addNewSession(Session session);
+	List<Session> getAllSessionList();
+	void saveSchoolSession(SchoolSession ss);
+	List<Long> addGradeAndSectionMapping(String sectionIdString, String gradeNameString, Long boardIdTarget);
+	List<Long> addSubjectAndSubjectSectionMapping(Long gradeIdSource, String subjectIdString, String subjectNameString, Long boardIdTarget, Long sectionIdTarget, Long gradeIdTarget);
+	List<Long> addChapterMapping(String chapterIdString, String chapterSerialOrderString, String chapterNameString, Long boardIdTarget, Long subjectIdTarget, Long gradeIdTarget);
+	List<Long> addTopicMapping(String topicIdString, String topicSerialOrderString, String topicNameString, Long boardIdTarget, Long chapterIdTarget, Long subjectIdTarget, Long gradeIdTarget);
+	String addGradeAndSectionMappingExisted(Long sectionIdSource, Long boardIdTarget, Long gradeIdTarget, Long sectionIdTarget);
+	String addGradeAndSectionMappingExistedSync(Long sectionIdSource, Long boardIdTarget, Long gradeIdTarget, Long sectionIdTarget);
+	
+	String addSubjectAndSubjectSectionMappingExisted(Long gradeIdSource, Long subjectIdSource, Long boardIdTarget, Long gradeIdTarget, Long subjectIdTarget);
+	String addChapterMappingExisted(Long chapterIdSource, Long boardIdTarget, Long gradeIdTarget, Long subjectIdTarget, Long chapterIdTarget);
+	String addTopicMappingExisted(Long topicIdSource, Long boardIdTarget, Long gradeIdTarget, Long subjectIdTarget, Long chapterIdTarget, Long topicIdTarget);
+	String addSchoolAndBoardMapping(Long boardId, Long schoolId, Long currentSessionId);
+	Integer getMaxOrderChapter(Long subjectId, Long gradeId, Long boardId, Long schoolId);
+	Integer getMaxOrderTopic(Long chapterId);
+	List<ModuleTopic> getModuleTopics(Long moduleId, Long topicId, Integer status);
+	List<Subject> getDistinctSubjects(Long boardId, Integer status);
+	String createSubjectChapterAndTopics(MultipartFile multiPartFile, Long boardId) throws IOException;
+	void updateChapterOrder(String[] idList, String[] serialOrderList);
+	void updateTopicOrder(String[] idList, String[] serialOrderList);
+	String savePrice(HttpServletRequest request);
+	String updateSubject(HttpServletRequest request, long userId, String swName);
+	String insertUpdateLog(UpdateLog updateLog);
+	String updateTopic(HttpServletRequest request, long id);
+	String updateChapter(HttpServletRequest request, long id);
+	String updateGrade(HttpServletRequest request, long id);
+	String updateBoard(HttpServletRequest request, long id);
+	List<QuestionComments> getCommentsnotificationsWithLimit(Integer limit);
+	Question getQuestionDetailsById(Long questionId);
+	List<QuestionComments> getAllCommentsByQuestionId(Long questionId);
+	void updateNotificationCountStatus();
+	List<QuestionTopic> getSubjectWiseQuestions(Long long1, Long valueOf2);
+	Boolean enableDisableQuestion(Long questionId, Integer status);
+	List<Chapter> getAllEnableDisableChapters(String subjectIdString, Long gradeId);
+	Boolean enableDisableChapter(Long chapId, Integer status);
+	Boolean enableDisableTopic(Long topicId, Integer status);
+	List<Topic> getAllEnableDisableTopics(Long chapterId, Integer statusInactive);
+	Boolean checkQuestionIsAssignedOrNot(Long questionId);
+	void syningUpdate(Long sectionIdSource, Long boardIdTarget, Long gradeIdTarget, Long sectionIdTarget);
+	List<Grade> syncingStatus(Long boardId, Long gradeId);
+	void addGradeAndSectionMappingExistedMerge(Long sectionIdSource, Long boardIdTarget, Long gradeIdTarget, Long sectionIdTarget);
+	List<TopicGraph> getTopicGraph(String topicIdString, String userId);
+
+}

@@ -1,0 +1,94 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(http://fonts.googleapis.com/css?family=Lora);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
+/** Globel css **/
+html, body, div, table, img, br, p, tr, td, tbody, dd, dr, ul, li, ol, header, footer, aside, article, section, nav, figure, 
+figurecaption, audio, video, iframe, embed, dir, label, input, select, option, datalist, button, form, pre, code, kbd, samp, span
+{margin:0px; padding:0px; outline:none;}
+
+html{height:100%;}
+Body{ width:100%; font-family: 'Droid Sans', sans-serif; font-size:13x; font-weight:normal; color:#6f6f6f; line-height:18px;}
+
+header, footer, nav, aside, article, section, figure, figurecaption, audio, video{ display:block;}
+img, embed, audio, video, object, frameborder { border:0px !important; max-width:100%;} 
+	
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="time"],
+input[type="datalist"], textarea { width:100%; border:none; padding:6px 5px; vertical-align:middle; 
+font-family: 'Droid Sans', sans-serif; color:#999; }
+
+input[type="radio"]{}
+select{ width:100%; border:#CCCCCC solid 1px; border-radius:3px; padding:0px 5px; height:30px; vertical-align:middle;  
+font-family: 'Droid Sans', sans-serif; color:#999; }
+
+option{ padding:3px 5px;}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="time"], input[type="radio"],
+input[type="datalist"]{ border:#CCCCCC solid 1px; font-size:13px;}
+
+textarea{ border:#CCC solid 1px; }
+
+a{color:#000; text-decoration:none;}	
+a:hover{color:#ea6c00; text-decoration:none;}
+a:active{color:#039; text-decoration:none !important;}
+
+ul, ol, li{}
+ul li{ margin-bottom:0px;}
+
+h1,h2,h3,h4,h5,h6{font-weight:normal;  margin:0px; padding:0px; font-family: 'Droid Sans', sans-serif;}
+
+h1{ font-size:16px; text-transform:uppercase; font-family: 'Droid Sans', sans-serif; color:#cb3536; padding:15px 0px 0px 0px;}
+
+h2{color:#df5820; font-size:24px; font-weight:normal; padding:15px 0 0 0; background:url(../images/heading_br.png) left 
+bottom repeat-x; }
+h3{color:#226a94; font-size:18px; font-weight:bold; padding:10px 15px;}
+h4{font-size:14px; padding:3px 0; color:#8b2c13; }
+h5{font-size:16px; padding:7px 0; color:#104577;}
+h6{font-size:11px; padding:3px 0; color:#8b2c13; }
+
+p{padding:0px 0;}
+strong{ color:#6f6f6f;font-size:12px; font-family:Arial, Helvetica, sans-serif; }
+
+.clearfix:after, .clearfix:before{ clear:both; display:block; content:""; height:0px; overflow:hidden;} 
+.clr{clear:both;}
+/** Globel css end **/ 
+
+
+
+/* navigation */
+.header-top-cont{ background:#222; position:relative; z-index:9999;}
+.nav-cont{ background:#f8f8f8; position:relative; z-index:20;}
+.navbar{ border-radius:0px; margin-bottom:0px; min-height:38px;}
+.navbar-default{ border:none;}
+.navbar-collapse{ padding:0px;}
+.nav > li {  border-right:#e6e6e6 solid 1px;}
+.navbar-nav > li > a{ padding:23px 37px; font-size:16px;}
+.navbar-nav > li > a span{ display:block; text-align:center; margin-bottom:10px;}
+.navbar-nav > li > a:hover{ background:#f2f2f2 !important;  }
+.navbar-brand{height: auto; padding:29px 0;}
+.nav > li:last-child{ border-right:none;}
+.nav-br-top{ border-right:none !important;}
+.nav-active{ background:#ececec;}
+
+/* footer */
+footer{ background-color:#222222; background-position:bottom; background-attachment:fixed; padding:20px;
+font-size:12px; color:#a4a3a3; margin-top:20px; }
+footer img{ margin-right:10px;}
+footer a{ color:#a4a3a3; margin-left:10px; font-size:12px;}
+.fot-pd{padding-left:7%;}
+
+.tab-content h2{color:#fff; font-size:22px; font-weight:normal; padding:10px; background:#226a94;}
+
+
+#select-ques{ margin-top:50px;}
+.in-box input{width:100%; background:#fff; color:#616161; padding:10px; border:1px solid #c9c9c9;}
+.in-box select{width:100%; height:40px; background:#fff; color:#616161; padding:10px; border:1px solid #c9c9c9;}
+.in-box option{padding:10px 10px 10px 10px; border-bottom:1px solid #c9c9c9; color:#616161;}
+.chk{margin:30px 0px 0px 0px; padding:0px;}
+.chk label{margin:0px; padding:0px 25px 0px 8px; font-weight:normal;}
+.chk textarea{margin-top:20px; width:100%; border:1px solid #c9c9c9; padding:10px; border:1px solid red;}
+
+.selct-chap{margin-top:20px; width:100%; border:1px solid #c9c9c9;}
+.selct-chap label{margin:0px; padding:0px 25px 0px 8px; font-weight:normal;}
+.dataTab{background:#226a94; color:#fff;}
+
+

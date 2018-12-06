@@ -1,0 +1,479 @@
+package com.flp.model;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.FilterDefs;
+import org.hibernate.annotations.Filters;
+import org.hibernate.annotations.ParamDef;
+
+import com.flp.util.Utility;
+
+@Entity
+@Table(name = "t_learnObjective")
+@FilterDefs({ @FilterDef(name = "LoFilterOrder", parameters = { @ParamDef(name = "active", type = "java.lang.Integer"), @ParamDef(name = "order", type = "java.lang.Integer") }), @FilterDef(name = "LoFilterStatus", parameters = { @ParamDef(name = "active", type = "java.lang.Integer")
+
+}) })
+public class LearnObjective implements Serializable
+{
+	
+	private static final long serialVersionUID = -6261927378551356127L;
+	public static final int STATUS_ACTIVE = 1;
+	public static final int STATUS_INACTIVE = 0;
+	public static final int STATUS_DISABLED = 2;
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "f_id")
+	private Long id;
+	
+	
+	@Column(name = "f_refLearnObjective")
+	private Long refLearnObjective;
+	
+	
+	
+
+	public Long getRefLearnObjective()
+	{
+		return refLearnObjective;
+	}
+
+	public void setRefLearnObjective(Long refLearnObjective)
+	{
+		this.refLearnObjective = refLearnObjective;
+	}
+
+	 
+	
+	@Lob
+	@Column(name = "f_name")
+	private String name;
+	
+	
+	@Column(name = "f_chapter_id")
+	private Long chapterId;
+	
+	@Column(name = "f_Topic_Id")
+	private Long topicId;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "f_Topic_Id", insertable = false, nullable = false, updatable = false)
+	private Topic topic;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "f_chapter_id", insertable = false, nullable = false, updatable = false)
+	private Chapter chapter;
+	
+	@Column(name = "f_grade_id")
+	private Long gradeId;
+
+	@Column(name = "f_board_id")
+	private Long boardId;
+
+	@Lob
+	@Column(name = "f_description")
+	private String description;
+
+	@Column(name = "f_subjectId")
+	private Long subjectId;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "f_subjectId", insertable = false, nullable = false, updatable = false)
+	private Subject subject;
+
+	@Column(name = "f_schoolId")
+	private Long schoolId;
+
+	@Column(name = "f_status")
+	private Integer status;
+
+	@Column(name = "f_order")
+	private Integer serialOrder;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "f_insertDate", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private Date insertDate = new Date();
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "f_modifiedDate", nullable = false, columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+	private Date modifiedDate = new Date();
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "topic")
+	private Set<QuestionTopic> questionTopic;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "topic")
+	@Filters({ @Filter(name = "questionAnswerFilter", condition = "f_correct_incorrect = :cCount AND f_userId=:sUserId"), 
+	@Filter(name = "questionAnswerFilterAllDetails", condition = "f_userId=:sUserId") })
+	private Set<UserQuestionAnswer> userQuestionAnswer;
+
+	// @OneToOne(fetch = FetchType.LAZY, mappedBy = "topic")
+	// @Filter(name = "smartScoreFliter", condition = "f_userId=:sUserId")
+	// private TopicSmartScore topicSmartScore;
+	
+	@Column(name = "f_Topic_Lo_Count")
+	private Integer topicLoCount;
+
+	@Transient
+	private Float lemdaValue;
+
+	@Transient
+	private Integer studentAssignCount;
+
+	@Transient
+	private int percent;
+	@Transient
+	private int markTopic;
+	
+	@Transient
+	private int markTopicContentPermission;
+	
+	
+	@Column(name="f_dateTimeZone")
+   	private String dateTimeZone=Utility.convertDateToStringWithZone(new Date()); 
+	
+	@Transient
+	private int rightCount;
+	
+	@Transient
+	private int wrongCount;
+	@Transient
+	private int skipCount;
+	
+	@Transient
+	private int tModulecount;
+	
+	public static long getSerialversionuid()
+	{
+		return serialVersionUID;
+	}
+
+	public static int getStatusActive()
+	{
+		return STATUS_ACTIVE;
+	}
+
+	public static int getStatusInactive()
+	{
+		return STATUS_INACTIVE;
+	}
+
+	public static int getStatusDisabled()
+	{
+		return STATUS_DISABLED;
+	}
+
+	public Long getId()
+	{
+		return id;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public Long getChapterId()
+	{
+		return chapterId;
+	}
+
+	public Long getTopicId()
+	{
+		return topicId;
+	}
+
+	public Topic getTopic()
+	{
+		return topic;
+	}
+
+	public Chapter getChapter()
+	{
+		return chapter;
+	}
+
+	public Long getGradeId()
+	{
+		return gradeId;
+	}
+
+	public Long getBoardId()
+	{
+		return boardId;
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public Long getSubjectId()
+	{
+		return subjectId;
+	}
+
+	public Subject getSubject()
+	{
+		return subject;
+	}
+
+	public Long getSchoolId()
+	{
+		return schoolId;
+	}
+
+	public Integer getStatus()
+	{
+		return status;
+	}
+
+	public Integer getSerialOrder()
+	{
+		return serialOrder;
+	}
+
+	public Date getInsertDate()
+	{
+		return insertDate;
+	}
+
+	public Date getModifiedDate()
+	{
+		return modifiedDate;
+	}
+
+	public Set<QuestionTopic> getQuestionTopic()
+	{
+		return questionTopic;
+	}
+
+	public Set<UserQuestionAnswer> getUserQuestionAnswer()
+	{
+		return userQuestionAnswer;
+	}
+
+	public Integer getTopicLoCount()
+	{
+		return topicLoCount;
+	}
+
+	public Float getLemdaValue()
+	{
+		return lemdaValue;
+	}
+
+	public Integer getStudentAssignCount()
+	{
+		return studentAssignCount;
+	}
+
+	public int getPercent()
+	{
+		return percent;
+	}
+
+	public int getMarkTopic()
+	{
+		return markTopic;
+	}
+
+	public int getMarkTopicContentPermission()
+	{
+		return markTopicContentPermission;
+	}
+
+	public String getDateTimeZone()
+	{
+		return dateTimeZone;
+	}
+
+	public int getRightCount()
+	{
+		return rightCount;
+	}
+
+	public int getWrongCount()
+	{
+		return wrongCount;
+	}
+
+	public int getSkipCount()
+	{
+		return skipCount;
+	}
+
+	public int gettModulecount()
+	{
+		return tModulecount;
+	}
+
+	public void setId(Long id)
+	{
+		this.id = id;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
+	public void setChapterId(Long chapterId)
+	{
+		this.chapterId = chapterId;
+	}
+
+	public void setTopicId(Long topicId)
+	{
+		this.topicId = topicId;
+	}
+
+	public void setTopic(Topic topic)
+	{
+		this.topic = topic;
+	}
+
+	public void setChapter(Chapter chapter)
+	{
+		this.chapter = chapter;
+	}
+
+	public void setGradeId(Long gradeId)
+	{
+		this.gradeId = gradeId;
+	}
+
+	public void setBoardId(Long boardId)
+	{
+		this.boardId = boardId;
+	}
+
+	public void setDescription(String description)
+	{
+		this.description = description;
+	}
+
+	public void setSubjectId(Long subjectId)
+	{
+		this.subjectId = subjectId;
+	}
+
+	public void setSubject(Subject subject)
+	{
+		this.subject = subject;
+	}
+
+	public void setSchoolId(Long schoolId)
+	{
+		this.schoolId = schoolId;
+	}
+
+	public void setStatus(Integer status)
+	{
+		this.status = status;
+	}
+
+	public void setSerialOrder(Integer serialOrder)
+	{
+		this.serialOrder = serialOrder;
+	}
+
+	public void setInsertDate(Date insertDate)
+	{
+		this.insertDate = insertDate;
+	}
+
+	public void setModifiedDate(Date modifiedDate)
+	{
+		this.modifiedDate = modifiedDate;
+	}
+
+	public void setQuestionTopic(Set<QuestionTopic> questionTopic)
+	{
+		this.questionTopic = questionTopic;
+	}
+
+	public void setUserQuestionAnswer(Set<UserQuestionAnswer> userQuestionAnswer)
+	{
+		this.userQuestionAnswer = userQuestionAnswer;
+	}
+
+	public void setTopicLoCount(Integer topicLoCount)
+	{
+		this.topicLoCount = topicLoCount;
+	}
+
+	public void setLemdaValue(Float lemdaValue)
+	{
+		this.lemdaValue = lemdaValue;
+	}
+
+	public void setStudentAssignCount(Integer studentAssignCount)
+	{
+		this.studentAssignCount = studentAssignCount;
+	}
+
+	public void setPercent(int percent)
+	{
+		this.percent = percent;
+	}
+
+	public void setMarkTopic(int markTopic)
+	{
+		this.markTopic = markTopic;
+	}
+
+	public void setMarkTopicContentPermission(int markTopicContentPermission)
+	{
+		this.markTopicContentPermission = markTopicContentPermission;
+	}
+
+	public void setDateTimeZone(String dateTimeZone)
+	{
+		this.dateTimeZone = dateTimeZone;
+	}
+
+	public void setRightCount(int rightCount)
+	{
+		this.rightCount = rightCount;
+	}
+
+	public void setWrongCount(int wrongCount)
+	{
+		this.wrongCount = wrongCount;
+	}
+
+	public void setSkipCount(int skipCount)
+	{
+		this.skipCount = skipCount;
+	}
+
+	public void settModulecount(int tModulecount)
+	{
+		this.tModulecount = tModulecount;
+	}
+
+	
+	
+	 
+
+}

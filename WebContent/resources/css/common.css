@@ -1,0 +1,87 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(http://fonts.googleapis.com/css?family=Lora);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
+/** Globel css **/
+html, body, div, table, img, br, p, tr, td, tbody, dd, dr, ul, li, ol, header, footer, aside, article, section, nav, figure, 
+figurecaption, audio, video, iframe, embed, dir, label, input, select, option, datalist, button, form, pre, code, kbd, samp, span
+{margin:0px; padding:0px; outline:0px!important;}
+
+html{height:100%;}
+Body{ width:100%; font-family: 'Arial', sans-serif !important; font-size:13x; font-weight:normal; color:#000000; line-height:18px;}
+
+header, footer, nav, aside, article, section, figure, figurecaption, audio, video{ display:block;}
+img, embed, audio,  object, frameborder { border:0px !important; /* max-width:125px; */}
+video  { border:0px !important; max-width:100%;}	
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="time"],
+input[type="datalist"], textarea { width:100%; border:none; padding:6px 5px; vertical-align:middle; 
+font-family: 'Arial', sans-serif !important; color:#999; }
+
+input[type="radio"]{}
+select{ width:100%; border:1px solid #202020 !important; border-radius:3px; padding:3px 3px; height:30px; vertical-align:middle;  
+font-family: 'Arial', sans-serif !important; color:#999; margin-bottom:7px; margin-top:7px; }
+
+option{ padding:8px 5px!important; display:block;}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="time"],
+input[type="datalist"]{ border:1px solid #202020 !important; font-size:13px;}
+
+textarea{ border:1px solid #202020 !important; }
+
+a{color:#000; text-decoration:none;cursor: pointer;}	
+a:hover{color:#ea6c00; text-decoration:none;}
+a:active{color:#039; text-decoration:none !important;}
+
+ul, ol, li{}
+ul li{ margin-bottom:0px;}
+
+h1,h2,h3,h4,h5,h6{font-weight:normal;  margin:0px; padding:0px; font-family: 'Arial', sans-serif !important;}
+
+h1{text-transform: inherit; font-family: 'Arial', sans-serif !important; color:#000; padding:15px 0;}
+
+h2{color:#df5820; font-size:24px; font-weight:normal; padding:15px 0; background:url(../images/heading_br.png) left 
+bottom repeat-x; }
+h3{ color: #020202; font-size: 16px; font-weight: bold; padding: 0;}
+h4{font-size:14px; padding:3px 0; color:#8b2c13; }
+h5{font-size:16px; padding:7px 0; color:#104577;}
+h6{font-size:11px; padding:3px 0; color:#8b2c13; }
+
+p{margin: 0 0 10px;
+    padding: 0;
+    width: 100%!important;}
+strong{ color:#202020;font-size:12px; }
+
+.clearfix:after, .clearfix:before{ clear:both; display:block; content:""; height:0px; overflow:hidden;} 
+.clr{clear:both;}
+/** Globel css end **/ 
+
+/** margin padding **/ 
+
+.mr10{ margin:10px;}.mrt10{ margin-top:10px;}.mrl10{ margin-left:10px;}.mrb10{ margin-bottom:10px;}.mrr10{ margin-right:10px;}
+.mr15{ margin:15px;}.mrt15{ margin-top:15px;}.mrl15{ margin-left:15px;}.mrb15{ margin-bottom:15px;}.mrr15{ margin-right:15px;}
+.mr20{ margin:20px;}.mrt20{ margin-top:20px;}.mrl20{ margin-left:20px;}.mrb20{ margin-bottom:20px;}.mrr20{ margin-right:20px;}
+
+.pd5{ padding:5px;}.pdt5{ padding-top:5px;}.pdl5{ padding-left:5px;}.pdb5{ padding-bottom:5px;}.pdr5{ padding-right:5px;}
+.pd8{ padding:8px;}.pdt8{ padding-top:8px;}.pdl8{ padding-left:8px;}.pdb8{ padding-bottom:8px;}.pdr8{ padding-right:8px;}
+.pd10{ padding:10px;}.pdt10{ padding-top:10px;}.pdl10{ padding-left:10px;}.pdb10{ padding-bottom:10px;}.pdr10{ padding-right:10px;}
+.pd15{ padding:15px;}.pdt15{ padding-top:15px;}.pdl15{ padding-left:15px;}.pdb15{ padding-bottom:15px;}.pdr15{ padding-right:15px;}
+.pd20{ padding:20px;}.pdt20{ padding-top:20px;}.pdl20{ padding-left:20px;}.pdb20{ padding-bottom:20px;}.pdr20{ padding-right:20px;}
+.diagram {display: inline-block; margin-top:9px;}
+.well {
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        display:none;
+        margin:1em;
+    }
+    pre.prettyprint {
+        padding: 9px 14px;
+    }
+    .fulltable {
+        max-width: 100%;
+        overflow: auto;
+    }
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .lineheight {
+        line-height: 3em;
+    }

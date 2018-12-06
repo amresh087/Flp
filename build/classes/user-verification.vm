@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <br/>
+  <div>Dear ${user.firstName},</div>
+  &nbsp;&nbsp;&nbsp;<div>Greetings from the iPerformKonnect group!!!</div>&nbsp;&nbsp;&nbsp;<div>
+  your account has been successfully created.
+  Kindly click on link given below to activate your account</div><br/>
+  <div><a href="${user.url}?token=${user.encryptedToken}">Activate</a></div><br/>
+  <div>Also you can copy paste below link to your browser to activate your account</div><br/>
+  <div><a href="${user.url}?token=${user.encryptedToken}">
+  http://www.flp.com/activateUserAccount.htm?token=${user.encryptedToken}</a></div>
+  &nbsp;&nbsp;&nbsp;<div> You can login with your email id as well as username</div>&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;<div>Your UserName is : ${user.userName}  </div>&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;<div>Your EmailId  is : ${user.emailId}  </div>&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;<div>Your Password is : ${user.password}  </div>&nbsp;&nbsp;&nbsp; 
+  
+  <br/><div style="align:center">HAPPY LEARNING WITH IPERFORMKONNECT GROUP</DIV>
+ </body>
+</html>

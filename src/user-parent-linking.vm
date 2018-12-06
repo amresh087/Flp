@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <table width="758" style="border:#331f4d 2px solid" align="center">
+  <tr>
+    <td valign="top"><table width="756" border="0" cellpadding="0" cellspacing="0" style="background:#685185;">
+  <tr>
+    <td width="541" height="148" valign="top" style="padding:7px 10px; color:#fff; font-family:Arial, Helvetica, sans-serif; font-size:14px; "><p><strong>Dear Parent ${user.firstName},</strong></p>
+    <p>Greetings from the FLP group!!!</p>
+   <p>You are registered with us with user id ${user.id}, your kid ${user.studentName} seems interested to study under
+   your observation so kindly accept his request by clicking on below link.
+    After that your account will be linked with your kid, then you can track your kid's study related activities.</p>
+    <a href="http://localhost:8082/FLP/userParentLinking.htm?token=${user.encryptedToken}"><img src="images/accept-bt.jpg" alt="Accept"/></a><br />
+    <br />
+   *if this mail is not suited to you then please ignore it.   </td>
+    <td width="215" valign="top"><img src="images/side_bg.jpg" alt=""/></td>
+  </tr>
+  </table>
+</td>
+   
+  </tr>
+ 
+</table>
+ </body>
+</html>
